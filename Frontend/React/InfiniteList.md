@@ -134,3 +134,10 @@ or
 unmounts (which happens every time we add new items to the bottom of the list). By using a callback ref (`useCallback`),
 React runs that function exactly when the element renders, allowing us to easily disconnect the old observer and attach
 a new one to the freshly rendered final item.
+
+### Recommended Libraries
+
+If you don't want to build this from scratch in a production app, there are excellent, battle-tested libraries available:
+
+* `react-intersection-observer`: A simple hook wrapper around the Intersection Observer API. It abstracts away the `useCallback` ref logic.
+* `react-window` or `react-virtuoso`: If your list is going to have thousands of items, DOM nodes will eventually slow down the browser. These libraries implement "windowing" (or "virtualization"), which removes off-screen items from the DOM entirely while preserving the scroll bar position.
