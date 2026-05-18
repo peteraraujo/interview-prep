@@ -36,7 +36,7 @@ Preventing memory leaks depends on properly utilizing the cleanup function retur
 import { useEffect, useState } from 'react';
 
 const TimerComponent = () => {
-  const \[count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -45,7 +45,7 @@ const TimerComponent = () => {
 
     // Cleanup phase: clears the interval when the component unmounts
     return () => clearInterval(timerId); 
-  }, \[]);
+  }, []);
 
   return <div>{count}</div>;
 };
@@ -65,7 +65,7 @@ const TimerComponent = () => {
 import { useEffect, useState } from 'react';
 
 const ScrollTracker = () => {
-  const \[scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +76,7 @@ const ScrollTracker = () => {
 
     // Cleanup phase: removes the listener when the component unmounts
     return () => window.removeEventListener('scroll', handleScroll); 
-  }, \[]);
+  }, []);
 
   return <div>Scrolled: {scrollY}px</div>;
 };
@@ -92,7 +92,7 @@ const ScrollTracker = () => {
 import { useEffect, useState } from 'react';
 
 const DataFetcher = () => {
-  const \[data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -113,7 +113,7 @@ const DataFetcher = () => {
 
     // Cleanup phase: aborts the fetch request if the component unmounts early
     return () => controller.abort(); 
-  }, \[]);
+  }, []);
 
   return <div>{data ? 'Data loaded' : 'Loading...'}</div>;
 };
@@ -130,16 +130,16 @@ import { useEffect, useState } from 'react';
 import { someRealtimeService } from './services';
 
 const LiveFeed = () => {
-  const \[feed, setFeed] = useState(\[]);
+  const [feed, setFeed] = useState([]);
 
   useEffect(() => {
     const subscription = someRealtimeService.subscribe((newData) => {
-      setFeed((prevFeed) => \[...prevFeed, newData]);
+      setFeed((prevFeed) => [...prevFeed, newData]);
     });
 
     // Cleanup phase: unsubscribes from the service
     return () => subscription.unsubscribe(); 
-  }, \[]);
+  }, []);
 
   return <div>Live events incoming...</div>;
 };
