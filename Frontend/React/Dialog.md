@@ -127,6 +127,6 @@ const handleOutsideClick = (e) => {
 
 Usage:
 
-```html
+```jsx
 <dialog ref={dialogRef} onClick={handleOutsideClick}>
 ```
