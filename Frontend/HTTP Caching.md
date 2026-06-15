@@ -1,4 +1,4 @@
-### HTTP Caching: A Factual Overview
+### HTTP Caching
 
 HTTP caching is a standard protocol mechanism designed to store copies of web resources (such as HTML documents, images, and JavaScript files) after they are initially downloaded. When a subsequent request is made for the same resource, the system can serve the stored copy rather than requesting it again from the origin server. The primary functions of HTTP caching are to decrease network traffic, reduce server computational load, and minimize the latency experienced by the end user.
 
